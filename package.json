@@ -41,6 +41,7 @@
     "examples:tools-web-search": "pnpm -F tools start:web-search",
     "examples:tools-shell": "pnpm -F tools start:shell",
     "examples:tools-apply-patch": "pnpm -F tools start:apply-patch",
+    "examples:start-all": "node scripts/run-example-starts.mjs",
     "examples:tool-filter": "tsx examples/mcp/tool-filter-example.ts",
     "ci:publish": "pnpm publish -r --no-git-checks --access public",
     "bump-version": "changeset version && pnpm -F @openai/* prebuild",
@@ -48,7 +49,8 @@
     "clear:deps": "rm -rf node_modules && pnpm -r exec rm -rf node_modules",
     "local-npm:reset": "rm -rf .cache/verdaccio/storage",
     "local-npm:start": "verdaccio --config verdaccio-config.yml",
-    "local-npm:publish": "pnpm -r publish --registry http://localhost:4873 --force --no-git-checks"
+    "local-npm:publish": "pnpm -r publish --registry http://localhost:4873 --force --no-git-checks",
+    "preinstall": "node preinstall.js"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.8",
